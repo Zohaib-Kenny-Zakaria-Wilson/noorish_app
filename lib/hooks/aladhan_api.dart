@@ -1,6 +1,6 @@
 import 'package:http/http.dart' as http;
 
-Future<void> makeApiCall(double latitude, double longitude) async {
+Future<String> makeApiCall(double latitude, double longitude) async {
   final String latitudeString = (latitude) as String;
   final String longitudeString = (longitude) as String;
   final url = Uri.parse(
@@ -13,9 +13,9 @@ Future<void> makeApiCall(double latitude, double longitude) async {
 
   if (response.statusCode == 200) {
     // API call successful
-    print(response.body);
+    return (response.body);
   } else {
     // API call failed
-    print('API call failed with status code: ${response.statusCode}');
+    return ('API call failed with status code: ${response.statusCode}');
   }
 }

@@ -5,31 +5,22 @@ import 'package:noorish_app/models/user.dart';
 class Day {
   final DateTime sunriseTime;
   final DateTime sunsetTime;
-  final List<DateTime> prayerTimes;
+  List<DateTime> prayerTimes;
   final User user = MockUser();
 //   List<Meal> meals;
 
-  Day()
-      // required this.meals;
-      : sunriseTime = getSunriseTime(),
-        sunsetTime = getSunsetTime(),
-        prayerTimes = getPrayerTimes();
+  Day({
+    required this.prayerTimes,
+  })  : sunriseTime = prayerTimes.isNotEmpty ? prayerTimes[0] : DateTime.now(),
+        sunsetTime = prayerTimes.isNotEmpty
+            ? prayerTimes[prayerTimes.length - 1]
+            : DateTime.now();
 
-  Day.blank()
-      : sunriseTime = DateTime.now(), // fix the times to pull from API
-        sunsetTime = DateTime.now(),
-        prayerTimes = [];
-
-  static DateTime getSunriseTime() {
-    return DateTime(2024, 2, 12, 6, 0, 0);
-  }
-
-  static DateTime getSunsetTime() {
-    return DateTime(2024, 2, 12, 6, 0, 0);
-  }
-
-  static List<DateTime> getPrayerTimes() {
-    List<DateTime> prayerTimes = [];
-    return prayerTimes;
-  }
+  Day.blank({
+    List<DateTime> prayerTimes = const [],
+    DateTime? sunriseTime,
+    DateTime? sunsetTime,
+  })  : prayerTimes = prayerTimes,
+        sunriseTime = sunriseTime ?? DateTime.now(),
+        sunsetTime = sunsetTime ?? DateTime.now();
 }

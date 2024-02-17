@@ -1,0 +1,68 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "$R0S2IXW",
+            "cwd": "$Recycle.Bin\\S-1-5-21-2102635182-2228727594-975284817-1001\\$R0S2IXW",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "$R0S2IXW (profile mode)",
+            "cwd": "$Recycle.Bin\\S-1-5-21-2102635182-2228727594-975284817-1001\\$R0S2IXW",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "$R0S2IXW (release mode)",
+            "cwd": "$Recycle.Bin\\S-1-5-21-2102635182-2228727594-975284817-1001\\$R0S2IXW",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "$RU6AQT8",
+            "cwd": "$Recycle.Bin\\S-1-5-21-2102635182-2228727594-975284817-1001\\$RU6AQT8",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "$RU6AQT8 (profile mode)",
+            "cwd": "$Recycle.Bin\\S-1-5-21-2102635182-2228727594-975284817-1001\\$RU6AQT8",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "$RU6AQT8 (release mode)",
+            "cwd": "$Recycle.Bin\\S-1-5-21-2102635182-2228727594-975284817-1001\\$RU6AQT8",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "noorish_cornhacks",
+            "cwd": "$Recycle.Bin\\S-1-5-21-2102635182-2228727594-975284817-1001\\$RJAABCH\\noorish_cornhacks",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "noorish_cornhacks (profile mode)",
+            "cwd": "$Recycle.Bin\\S-1-5-21-2102635182-2228727594-975284817-1001\\$RJAABCH\\noorish_cornhacks",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "noorish_cornhacks (release mode)",
+            "cwd": "$Recycle.Bin\\S-1-5-21-2102635182-2228727594-975284817-1001\\$RJAABCH\\noorish_cornhacks",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
