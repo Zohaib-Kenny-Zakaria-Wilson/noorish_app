@@ -7,7 +7,7 @@ class Ingredient {
   final String name;
   final int quantity;
   final int quantityConsumed;
-  final int protien;
+  final int protein;
   final int carbs;
   final int calories;
   final int fats;
@@ -21,7 +21,7 @@ class Ingredient {
   Ingredient(
       {required this.name,
       required this.quantity,
-      required this.protien,
+      required this.protein,
       required this.carbs,
       required this.calories,
       required this.fats,
