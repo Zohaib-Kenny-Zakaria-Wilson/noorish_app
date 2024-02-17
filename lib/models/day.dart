@@ -1,7 +1,3 @@
-import 'package:noorish_app/hooks/aladhan_api.dart';
-import 'package:noorish_app/mocks/user_mock.dart';
-import 'package:noorish_app/models/user.dart';
-
 class Day {
   final DateTime sunriseTime;
   final DateTime sunsetTime;
