@@ -18,13 +18,14 @@ class Ingredient {
               json) => // converts json to actual instianiated objects
       _$IngredientFromJson(json);
 
-  Ingredient(
-      {required this.name,
-      required this.quantity,
-      required this.protein,
-      required this.carbs,
-      required this.calories,
-      required this.fats,
-      required this.servingSize,
-      required this.quantityConsumed});
+  Ingredient({
+    required this.name,
+    required this.quantity,
+    required this.quantityConsumed,
+    required this.protein,
+    required this.carbs,
+    required this.calories,
+    required this.fats,
+    required this.servingSize,
+  });
 }
