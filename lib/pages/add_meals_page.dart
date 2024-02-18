@@ -5,6 +5,7 @@ import 'package:noorish_app/hooks/barcode_api.dart'; // Make sure this path is c
 import 'package:noorish_app/models/day.dart'; // Make sure this path is correct
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:noorish_app/hooks/barcode_api.dart';
+import 'package:noorish_app/models/ingredient.dart';
 
 // Define the StatefulWidget
 class AddMeal extends StatefulWidget {
@@ -18,7 +19,6 @@ class AddMeal extends StatefulWidget {
 }
 
 class _AddMealState extends State<AddMeal> {
-
   bool isScanning = false;
   List<Ingredient> ingredients = [];
   String barcodeString = '';
@@ -26,13 +26,11 @@ class _AddMealState extends State<AddMeal> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Add Meal')),
-
       body: isScanning
           ? MobileScanner(
               onDetect: (capture) {
                 final List<Barcode> barcodes = capture.barcodes;
                 if (barcodes.isNotEmpty) {
-
                   final barcode = barcodes[0].displayValue;
                   setState(() {
                     isScanning = false;
