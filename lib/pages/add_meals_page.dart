@@ -18,24 +18,27 @@ class AddMeal extends StatefulWidget {
 }
 
 class _AddMealState extends State<AddMeal> {
-  bool isScanning = true; // State variable to control scanner activity
 
+  bool isScanning = false;
+  List<Ingredient> ingredients = [];
+  String barcodeString = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Mobile Scanner')),
+      appBar: AppBar(title: Text('Add Meal')),
+
       body: isScanning
           ? MobileScanner(
               onDetect: (capture) {
                 final List<Barcode> barcodes = capture.barcodes;
                 if (barcodes.isNotEmpty) {
-                  final barcode = barcodes[0];
-                  debugPrint('Barcode found! ${barcode.rawValue}');
-                  fetchProductName(barcode.rawValue!); // Fetch product info
 
+                  final barcode = barcodes[0].displayValue;
                   setState(() {
-                    isScanning =
-                        false; // Stop scanning after a barcode is detected
+                    isScanning = false;
+                    barcodeString = barcode.toString();
+                    ingredients.addAll(fetchProductNutriments(barcodeString)
+                        as Iterable<Ingredient>);
                   });
                 }
               },
