@@ -10,7 +10,9 @@ import 'package:noorish_app/pages/add_meals_page.dart';
 import 'package:noorish_app/style.dart';
 
 class DayPage extends StatefulWidget {
-  const DayPage({super.key});
+  final int dayNumber;
+
+  const DayPage({required this.dayNumber});
 
   @override
   State<DayPage> createState() => _DayPageState();
