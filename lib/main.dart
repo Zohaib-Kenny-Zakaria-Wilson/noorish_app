@@ -32,8 +32,7 @@ void main() async {
           ),
           body: const TabBarView(
             children: [
-              Calendar(),
-              DayPage(),
+              CalendarPage(),
               Recipe(),
             ],
           ),
