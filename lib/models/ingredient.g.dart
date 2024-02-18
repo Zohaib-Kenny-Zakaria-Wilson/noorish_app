@@ -9,10 +9,10 @@ part of 'ingredient.dart';
 Ingredient _$IngredientFromJson(Map<String, dynamic> json) => Ingredient(
       name: json['name'] as String,
       quantity: json['quantity'] as int,
-      protein: json['protien'] as int,
-      carbs: json['carbs'] as int,
-      calories: json['calories'] as int,
-      fats: json['fats'] as int,
+      protein: json['protien'] as double,
+      carbs: json['carbs'] as double,
+      calories: json['calories'] as double,
+      fats: json['fats'] as double,
       servingSize: (json['servingSize'] as num).toDouble(),
       quantityConsumed: json['quantityConsumed'] as int,
     );
