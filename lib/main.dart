@@ -11,11 +11,13 @@ void main() {
     home: DefaultTabController(
       length: 3,
       child: Scaffold(
+        backgroundColor: Styles.backgroundColor,
         appBar: AppBar(
           backgroundColor: Color.fromARGB(255, 46, 103, 156),
-          title: const Text(
-            'NOORISH',
+          title: Text(
+            'Noorish',
             textAlign: TextAlign.center,
+            style: Styles.headline1,
           ),
         ),
         body: const TabBarView(
