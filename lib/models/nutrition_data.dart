@@ -1,3 +1,5 @@
+import 'package:noorish_app/hooks/barcode_api.dart';
+
 class NutrientData {
   final String name;
   final double currentValue;

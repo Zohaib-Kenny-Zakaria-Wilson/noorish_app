@@ -261,7 +261,7 @@ class _DayPageState extends State<DayPage> {
 
   Widget _renderMeal(BuildContext context, Meal meal) {
     final totalCalories = meal.ingredientsList
-        .fold<int>(0, (sum, current) => sum + current.calories);
+        .fold<double>(0, (sum, current) => sum + current.calories);
 
     return Padding(
       padding: const EdgeInsets.only(bottom: 12.0),
@@ -296,9 +296,8 @@ class _DayPageState extends State<DayPage> {
 
   void _navMeal(BuildContext context, Day day) {
     Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => AddMeal(day: day),
-        ));
+      context,
+      MaterialPageRoute(builder: (context) => AddMeal(day)),
+    );
   }
 }
