@@ -6,6 +6,7 @@ class Styles {
   static final Color secondaryColor = Color.fromARGB(255, 43, 182, 115);
   static final Color primaryTextColor = Color.fromARGB(255, 30, 30, 30);
   static final Color foregroundColor = Colors.white;
+  static final Color sunRiseTextColor = Color(0xFFDABA14);
 
   ///TextStyles
   ///TextStyles
@@ -32,6 +33,22 @@ class Styles {
     fontFamily: _fontNameDefault,
     fontSize: 24.0,
     fontWeight: FontWeight.w500,
+  );
+
+  static final TextStyle prayerBoldText = TextStyle(
+    fontFamily: _fontNameDefault,
+    fontSize: 28.0,
+    fontWeight: FontWeight.w700,
+  );
+
+  static final TextStyle prayerLightText = TextStyle(
+    fontSize: 28.0,
+    fontWeight: FontWeight.w300,
+  );
+
+  static final TextStyle prayerMediumText = TextStyle(
+    fontSize: 28.0,
+    fontWeight: FontWeight.w400,
   );
 
   ///TextStyles

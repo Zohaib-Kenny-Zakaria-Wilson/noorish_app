@@ -26,7 +26,6 @@ class _DayPageState extends State<DayPage> {
     NutrientData(name: "Carbs", currentValue: 70, maxValue: 100),
     NutrientData(name: "Fats", currentValue: 30, maxValue: 100),
   ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,6 +34,100 @@ class _DayPageState extends State<DayPage> {
         child: Column(
           children: [
             _renderTodayMacros(context, nutrients),
+            Padding(
+              padding: EdgeInsets.all(24.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  //SunRise
+                  Container(
+                      decoration: BoxDecoration(
+                        color: Styles.foregroundColor, // Background color
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.1), // Shadow color
+                            spreadRadius: 1,
+                            blurRadius: 1,
+                            offset: Offset(0, 2), // Shadow position
+                          ),
+                        ],
+                      ),
+                      padding: EdgeInsets.all(16.0),
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.sunny,
+                                size: 60.0,
+                                color: Styles.sunRiseTextColor,
+                              ),
+                              SizedBox(width: 8),
+                              Column(
+                                children: [
+                                  Text('SUN',
+                                      style: Styles.prayerBoldText.copyWith(
+                                          color: Styles.sunRiseTextColor)),
+                                  Text('RISE',
+                                      style: Styles.prayerLightText.copyWith(
+                                          color: Styles.sunRiseTextColor)),
+                                ],
+                              )
+                            ],
+                          ),
+                          Text(
+                            '5:34am',
+                            style: Styles.prayerMediumText,
+                          ),
+                        ],
+                      )),
+                  //SunSet
+                  Container(
+                      decoration: BoxDecoration(
+                        color: Styles.foregroundColor, // Background color
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.1), // Shadow color
+                            spreadRadius: 1,
+                            blurRadius: 1,
+                            offset: Offset(0, 2), // Shadow position
+                          ),
+                        ],
+                      ),
+                      padding: EdgeInsets.all(16.0),
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.dark_mode,
+                                size: 60.0,
+                                color: Styles.primaryColor,
+                              ),
+                              SizedBox(width: 8),
+                              Column(
+                                children: [
+                                  Text('SUN',
+                                      style: Styles.prayerBoldText.copyWith(
+                                          color: Styles.primaryColor)),
+                                  Text('SET',
+                                      style: Styles.prayerLightText.copyWith(
+                                          color: Styles.primaryColor)),
+                                ],
+                              )
+                            ],
+                          ),
+                          Text(
+                            '10:30pm',
+                            style: Styles.prayerMediumText,
+                          ),
+                        ],
+                      )),
+                ],
+              ),
+            ),
             _renderMealContainer(context, meals),
           ],
         ),

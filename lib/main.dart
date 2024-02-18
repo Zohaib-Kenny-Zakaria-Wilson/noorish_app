@@ -37,13 +37,14 @@ void main() async {
               Recipe(),
             ],
           ),
-          bottomNavigationBar: const TabBar(
-            tabs: [
-              Tab(icon: Icon(Icons.calendar_today_rounded)),
-              Tab(icon: Icon(Icons.home_filled)),
-              Tab(icon: Icon(Icons.list_alt_rounded)),
-            ],
-            padding: EdgeInsets.all(16.0),
+          bottomNavigationBar: BottomAppBar(
+            child: TabBar(
+              tabs: [
+                Tab(icon: Icon(Icons.calendar_today_rounded)),
+                Tab(icon: Icon(Icons.home_filled)),
+                Tab(icon: Icon(Icons.list_alt_rounded)),
+              ],
+            ),
           ),
         ),
       ),
