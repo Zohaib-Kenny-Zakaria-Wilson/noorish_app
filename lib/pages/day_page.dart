@@ -70,14 +70,29 @@ class _DayPageState extends State<DayPage> {
     return Scaffold(
       backgroundColor: Styles.backgroundColor,
       appBar: AppBar(
-        title: Text('${Day.monthToString(day.month)} ${day.day}th',
-            style: Styles.baseTextStyle.copyWith(fontSize: 20.0)),
+        title: Padding(
+          padding: const EdgeInsets.symmetric(
+              horizontal: 16.0), // Add padding horizontally
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Image.asset(
+                'assets/images/noorish_logo.png',
+                height: 20.0,
+              ),
+              Text(
+                '${Day.monthToString(day.month)} ${day.day}th',
+                style: Styles.baseTextStyle.copyWith(fontSize: 20.0),
+              ),
+            ],
+          ),
+        ),
         backgroundColor: Styles.backgroundColor,
         bottom: PreferredSize(
-          preferredSize: Size.fromHeight(4.0), // Set the height of the border
+          preferredSize: Size.fromHeight(4.0),
           child: Container(
-            height: 1.0, // Height of the border
-            color: Color.fromARGB(45, 124, 136, 138), // Color of the border
+            height: 1.0,
+            color: Color.fromARGB(45, 124, 136, 138),
           ),
         ),
       ),

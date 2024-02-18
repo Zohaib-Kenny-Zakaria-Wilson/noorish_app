@@ -25,11 +25,16 @@ void main() async {
                   dayNumber: DateTime.now().day, month: DateTime.now().month),
             ],
           ),
-          bottomNavigationBar: const BottomAppBar(
+          bottomNavigationBar: BottomAppBar(
+            color: Styles.backgroundColor,
             child: TabBar(
               tabs: [
-                Tab(icon: Icon(Icons.calendar_today_rounded)),
-                Tab(icon: Icon(Icons.home_filled)),
+                Tab(
+                    icon: Icon(Icons.calendar_today_rounded,
+                        color: Styles.secondaryColor, size: 30.0)),
+                Tab(
+                    icon: Icon(Icons.home_filled,
+                        color: Styles.secondaryColor, size: 30.0)),
               ],
             ),
           ),
