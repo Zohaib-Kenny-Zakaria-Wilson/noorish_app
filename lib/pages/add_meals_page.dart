@@ -25,23 +25,43 @@ class _AddMealState extends State<AddMeal> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Add Meal')),
-      body: isScanning
-          ? MobileScanner(
-              onDetect: (capture) {
-                final List<Barcode> barcodes = capture.barcodes;
-                if (barcodes.isNotEmpty) {
-                  final barcode = barcodes[0].displayValue;
-                  setState(() {
-                    isScanning = false;
-                    barcodeString = barcode.toString();
-                    ingredients.addAll(fetchProductNutriments(barcodeString)
-                        as Iterable<Ingredient>);
-                  });
-                }
-              },
-            )
-          : Center(child: Text('barcode')),
-    );
+        appBar: AppBar(title: Text('Add Meal')),
+        body: isScanning
+            ? MobileScanner(
+                onDetect: (capture) {
+                  final List<Barcode> barcodes = capture.barcodes;
+                  if (barcodes.isNotEmpty) {
+                    final barcode = barcodes[0].displayValue;
+                    setState(() {
+                      isScanning = false;
+                      barcodeString = barcode.toString();
+                      Ingredient ingredient =
+                          Ingredient(barcode: barcodeString);
+                      ingredient.updateNutriments();
+                      ingredients.add(ingredient);
+                    });
+                  }
+                },
+              )
+            : Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ListView.builder(
+                  itemCount: ingredients.length,
+                  itemBuilder: (context, index) {
+                    Ingredient ingredient = ingredients[index];
+                    return Card(
+                      child: ListTile(
+                        title: Text(ingredient.name),
+                        subtitle: Text(
+                            'Calories: ${ingredient.calories}, Protein: ${ingredient.protein}, Carbs: ${ingredient.carbs}, Fats: ${ingredient.fats}'),
+                      ),
+                    );
+                  },
+                ),
+              ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => setState(() => isScanning = !isScanning),
+          child: Icon(isScanning ? Icons.stop : Icons.camera_alt),
+        ));
   }
 }
