@@ -12,16 +12,31 @@ import 'package:noorish_app/style.dart';
 class DayPage extends StatefulWidget {
   final int dayNumber;
 
-  const DayPage({required this.dayNumber});
+  const DayPage({Key? key, required this.dayNumber}) : super(key: key);
 
   @override
   State<DayPage> createState() => _DayPageState();
 }
 
 class _DayPageState extends State<DayPage> {
+  late Day day;
+
+  @override
+  void initState() {
+    super.initState();
+    // Assume you have a method to initialize or fetch the day's data
+    initializeDay();
+  }
+
+  void initializeDay() {
+    // Initialize your day here based on widget.dayNumber
+    // This is a placeholder for whatever method you use to fetch or initialize day's data
+    day = Day(date: widget.dayNumber);
+    // If fetching data is asynchronous, make sure to use setState to update the UI after data is fetched
+  }
+
   List<Meal> meals =
       MockMeal.meals; // Assuming this returns a list of Meal objects
-  Day today = Day();
   final List<NutrientData> nutrients = [
     NutrientData(name: "Calories", currentValue: 1200, maxValue: 2000),
     NutrientData(name: "Protein", currentValue: 50, maxValue: 100),
@@ -35,6 +50,7 @@ class _DayPageState extends State<DayPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            Text(day.date.toString()),
             _renderTodayMacros(context, nutrients),
             Padding(
               padding: EdgeInsets.all(24.0),
@@ -215,7 +231,7 @@ class _DayPageState extends State<DayPage> {
           )
         ],
       ),
-      onPressed: () => _navMeal(context, today),
+      onPressed: () => _navMeal(context, this.day),
     );
   }
 
@@ -265,7 +281,8 @@ class _DayPageState extends State<DayPage> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => AddMeal(today), // can be used in
+        builder: (context) =>
+            AddMeal(Day(date: this.day.date)), // can be used in
       ),
     );
   }
