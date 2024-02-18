@@ -1,25 +1,37 @@
-import 'package:noorish_app/mocks/day_mock.dart';
-import 'package:noorish_app/mocks/meals_mock.dart';
-import 'package:noorish_app/models/meal.dart';
+import 'package:noorish_app/mocks/user_mock.dart';
+import 'package:noorish_app/models/ramadan.dart';
+import 'package:noorish_app/models/user.dart';
 
 class Day {
-  final DateTime sunriseTime;
-  final DateTime sunsetTime;
-  List<DateTime> prayerTimes = MockDay.prayerTimes;
-  List<Meal> meals = MockMeal.meals;
+  final int date = DateTime.now().day;
+  List<String> prayerTimes = [];
+  final User user = MockUser();
+//   List<Meal> meals;
 
-  Day({
-    required this.prayerTimes,
-  })  : sunriseTime = prayerTimes.isNotEmpty ? prayerTimes[0] : DateTime.now(),
-        sunsetTime = prayerTimes.isNotEmpty
-            ? prayerTimes[prayerTimes.length - 1]
-            : DateTime.now();
+  Day();
 
-  Day.blank({
-    List<DateTime> prayerTimes = const [],
-    DateTime? sunriseTime,
-    DateTime? sunsetTime,
-  })  : prayerTimes = prayerTimes,
-        sunriseTime = sunriseTime ?? DateTime.now(),
-        sunsetTime = sunsetTime ?? DateTime.now();
+  Future<void> updatePrayerTimes() async {
+    print("hi");
+    List<dynamic> ramadanDays = await Ramadan.getRamadanDays();
+    List<String> prayers = [];
+    int index;
+    if (date >= 11 && date <= 31) {
+      index = date - 11;
+    } else {
+      index = date + 20;
+    }
+
+    prayers.add(ramadanDays[index]['timings']['Fajr']);
+    print(prayers);
+    prayers.add(ramadanDays[index]['timings']['Dhuhr']);
+    print(prayers);
+    prayers.add(ramadanDays[index]['timings']['Asr']);
+    print(prayers);
+    prayers.add(ramadanDays[index]['timings']['Maghrib']);
+    print(prayers);
+    prayers.add(ramadanDays[index]['timings']['Isha']);
+    print(prayers);
+
+    prayerTimes = prayers;
+  }
 }

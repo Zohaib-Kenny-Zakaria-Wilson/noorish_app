@@ -9,7 +9,7 @@ class MockUser extends User {
               68.0, // Assuming this is the intended representation (inches to meters conversion happens inside User)
           weight:
               230.0, // Assuming this is the intended representation (pounds to kilograms conversion happens inside User)
-          long: 96.681679,
+          long: -96.681679,
           lat: 40.806862,
         );
 }
