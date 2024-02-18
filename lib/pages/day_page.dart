@@ -25,15 +25,24 @@ class _DayPageState extends State<DayPage> {
   @override
   void initState() {
     super.initState();
-    // Assume you have a method to initialize or fetch the day's data
-    initializeDay();
+    initializeDay(); // No need to await here
   }
 
-  void initializeDay() {
-    // Initialize your day here based on widget.dayNumber
-    // This is a placeholder for whatever method you use to fetch or initialize day's data
-    day = Day(day: widget.dayNumber, month: widget.month);
-    // If fetching data is asynchronous, make sure to use setState to update the UI after data is fetched
+  Future<void> initializeDay() async {
+    try {
+      // Initialize your day here based on widget.dayNumber and widget.month
+      day = Day(day: widget.dayNumber, month: widget.month);
+
+      await day.updatePrayerTimes();
+
+      // Call setState to trigger a rebuild with the updated prayer times.
+      if (mounted) {
+        setState(() {});
+      }
+    } catch (error) {
+      // Consider logging the error or showing a message to the user.
+      print("Error updating prayer times: $error");
+    }
   }
 
   List<Meal> meals =
@@ -44,8 +53,20 @@ class _DayPageState extends State<DayPage> {
     NutrientData(name: "Carbs", currentValue: 70, maxValue: 100),
     NutrientData(name: "Fats", currentValue: 30, maxValue: 100),
   ];
+
   @override
   Widget build(BuildContext context) {
+    String sunriseTime = "Loading...";
+    String sunsetTime = "Loading...";
+
+    // Ensure prayerTimes has at least 5 elements (Fajr, Dhuhr, Asr, Maghrib, Isha)
+    if (day.prayerTimes.length >= 5) {
+      sunriseTime = day.prayerTimes[0].toString().substring(
+          0, sunriseTime.length - 5); // Assuming Fajr time is sunrise
+      sunsetTime =
+          '${day.prayerTimes[3].toString().substring(0, sunriseTime.length)}'; // Assuming Maghrib time is sunset
+    }
+
     return Scaffold(
       backgroundColor: Styles.backgroundColor,
       appBar: AppBar(
@@ -110,7 +131,7 @@ class _DayPageState extends State<DayPage> {
                               ],
                             ),
                             Text(
-                              '5:34am',
+                              '${sunriseTime}',
                               style: Styles.prayerMediumText,
                             ),
                           ],
@@ -154,7 +175,7 @@ class _DayPageState extends State<DayPage> {
                               ],
                             ),
                             Text(
-                              '10:30pm',
+                              '$sunsetTime',
                               style: Styles.prayerMediumText,
                             ),
                           ],
