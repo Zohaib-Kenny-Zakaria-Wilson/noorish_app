@@ -6,13 +6,13 @@ import 'package:noorish_app/hooks/aladhan_api.dart';
 import 'package:noorish_app/hooks/barcode_api.dart';
 import 'package:noorish_app/mocks/ingredients_mock.dart';
 import 'package:noorish_app/models/day.dart';
+import 'package:noorish_app/models/ingredient.dart';
 import 'package:noorish_app/pages/calendar_page.dart';
 import 'package:noorish_app/pages/day_page.dart';
 import 'package:noorish_app/pages/reciepe_page.dart';
 import 'package:noorish_app/style.dart';
 
 void main() async {
-  MockIngredient.ingredients[0].updateNutriments();
   runApp(
     MaterialApp(
       home: DefaultTabController(
