@@ -1,16 +1,40 @@
-# noorish_app
+# Noorish
+Noorish is a Flutter mobile application designed to assist Muslims in tracking their health and nutritional intake during the holy month of Ramadan. The app utilizes various APIs, including Alahdan, OpenFoodFacts, and Google's Machine Learning Toolkit subset for barcode scanning.
 
-A new Flutter project.
+## Features
+### 1. Day Page
+Upon launching the app, users are greeted with the Day page.
+The Day page displays essential information such as times for sunset and sunrise, helping users manage their fasting schedule effectively.
+It includes a section that lists the meals planned for the day, aiding users in organizing their eating schedule.
+The app calculates and updates the total calories and macronutrients consumed, providing users with insights into their nutritional intake.
+### 2. Calendar Page
+Users can navigate to the Calendar page by swiping left from the Day page.
+The Calendar page presents a monthly view with 31 days, allowing users to visualize their fasting and eating patterns throughout Ramadan.
+Users can click on any day in the calendar to access the Day page for that specific day, facilitating easy access to detailed information.
 
-## Getting Started
+## Testing Environment
+The app has been tested using an Android Pixel 3 emulator.
+This testing environment ensures that the app functions smoothly and reliably across different devices and screen sizes.
+APIs Used
 
-This project is a starting point for a Flutter application.
+### Alahdan API
+Used to fetch information related to sunrise and sunset times, assisting users in scheduling their fasting and eating periods.
+OpenFoodFacts API: Provides nutritional information for scanned ingredients, helping users make informed dietary choices.
+### Google's Machine Learning Toolkit (Barcode Scanner Subset)
+Utilized for barcode scanning functionality, enabling users to quickly retrieve nutritional information for scanned products.
 
-A few resources to get you started if this is your first Flutter project:
+## Development Information
+Framework: Flutter
+Programming Language: Dart
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## How to Run the App
+Clone the repository to your local machine.
+Ensure that Flutter and the necessary dependencies are installed.
+Connect an Android device or launch an Android emulator.
+Run the app using the Flutter CLI command: flutter run.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Contributors
+Zohaib Shaikh
+Zakaria Rab
+Wilson Overfield
+Kenny Morales
