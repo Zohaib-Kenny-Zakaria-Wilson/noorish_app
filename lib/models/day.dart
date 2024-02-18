@@ -3,13 +3,14 @@ import 'package:noorish_app/models/ramadan.dart';
 import 'package:noorish_app/models/user.dart';
 
 class Day {
-  int date; // Make this non-final to allow initialization with constructor
+  int day; // Make this non-final to allow initialization with constructor
+  int month;
   List<String> prayerTimes = [];
   final User user = MockUser();
   // List<Meal> meals;
 
   // Modify constructor to accept a day number
-  Day({required this.date});
+  Day({required this.day, required this.month});
 
   Future<void> updatePrayerTimes() async {
     List<dynamic> ramadanDays = await Ramadan.getRamadanDays();
@@ -17,10 +18,10 @@ class Day {
     int index;
 
     // Use 'date' directly since it's now being initialized with the desired day number
-    if (date >= 11 && date <= 31) {
-      index = date - 11;
+    if (day >= 11 && day <= 31) {
+      index = day - 11;
     } else {
-      index = date + 20;
+      index = day + 20;
     }
 
     prayers.add(ramadanDays[index]['timings']['Fajr']);
@@ -30,5 +31,36 @@ class Day {
     prayers.add(ramadanDays[index]['timings']['Isha']);
 
     prayerTimes = prayers;
+  }
+
+  static String monthToString(int month) {
+    switch (month) {
+      case 1:
+        return "January";
+      case 2:
+        return "February";
+      case 3:
+        return "March";
+      case 4:
+        return "April";
+      case 5:
+        return "May";
+      case 6:
+        return "June";
+      case 7:
+        return "July";
+      case 8:
+        return "August";
+      case 9:
+        return "September";
+      case 10:
+        return "October";
+      case 11:
+        return "November";
+      case 12:
+        return "December";
+      default:
+        return "Invalid month";
+    }
   }
 }

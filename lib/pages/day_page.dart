@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:noorish_app/components/nutrition_progress_bar.dart';
-import 'package:noorish_app/mocks/day_mock.dart';
 import 'package:noorish_app/mocks/meals_mock.dart';
 import 'package:noorish_app/models/day.dart';
 import 'package:noorish_app/models/meal.dart';
@@ -11,8 +10,10 @@ import 'package:noorish_app/style.dart';
 
 class DayPage extends StatefulWidget {
   final int dayNumber;
+  final int month;
 
-  const DayPage({Key? key, required this.dayNumber}) : super(key: key);
+  const DayPage({Key? key, required this.dayNumber, required this.month})
+      : super(key: key);
 
   @override
   State<DayPage> createState() => _DayPageState();
@@ -31,7 +32,7 @@ class _DayPageState extends State<DayPage> {
   void initializeDay() {
     // Initialize your day here based on widget.dayNumber
     // This is a placeholder for whatever method you use to fetch or initialize day's data
-    day = Day(date: widget.dayNumber);
+    day = Day(day: widget.dayNumber, month: widget.month);
     // If fetching data is asynchronous, make sure to use setState to update the UI after data is fetched
   }
 
@@ -47,107 +48,123 @@ class _DayPageState extends State<DayPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Styles.backgroundColor,
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Text(day.date.toString()),
-            _renderTodayMacros(context, nutrients),
-            Padding(
-              padding: EdgeInsets.all(24.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  //SunRise
-                  Container(
-                      decoration: BoxDecoration(
-                        color: Styles.foregroundColor, // Background color
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.1), // Shadow color
-                            spreadRadius: 1,
-                            blurRadius: 1,
-                            offset: Offset(0, 2), // Shadow position
-                          ),
-                        ],
-                      ),
-                      padding: EdgeInsets.all(16.0),
-                      child: Column(
-                        children: [
-                          Row(
-                            children: [
-                              Icon(
-                                Icons.sunny,
-                                size: 60.0,
-                                color: Styles.sunRiseTextColor,
-                              ),
-                              SizedBox(width: 8),
-                              Column(
-                                children: [
-                                  Text('SUN',
-                                      style: Styles.prayerBoldText.copyWith(
-                                          color: Styles.sunRiseTextColor)),
-                                  Text('RISE',
-                                      style: Styles.prayerLightText.copyWith(
-                                          color: Styles.sunRiseTextColor)),
-                                ],
-                              )
-                            ],
-                          ),
-                          Text(
-                            '5:34am',
-                            style: Styles.prayerMediumText,
-                          ),
-                        ],
-                      )),
-                  //SunSet
-                  Container(
-                      decoration: BoxDecoration(
-                        color: Styles.foregroundColor, // Background color
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.1), // Shadow color
-                            spreadRadius: 1,
-                            blurRadius: 1,
-                            offset: Offset(0, 2), // Shadow position
-                          ),
-                        ],
-                      ),
-                      padding: EdgeInsets.all(16.0),
-                      child: Column(
-                        children: [
-                          Row(
-                            children: [
-                              Icon(
-                                Icons.dark_mode,
-                                size: 60.0,
-                                color: Styles.primaryColor,
-                              ),
-                              SizedBox(width: 8),
-                              Column(
-                                children: [
-                                  Text('SUN',
-                                      style: Styles.prayerBoldText.copyWith(
-                                          color: Styles.primaryColor)),
-                                  Text('SET',
-                                      style: Styles.prayerLightText.copyWith(
-                                          color: Styles.primaryColor)),
-                                ],
-                              )
-                            ],
-                          ),
-                          Text(
-                            '10:30pm',
-                            style: Styles.prayerMediumText,
-                          ),
-                        ],
-                      )),
-                ],
+      appBar: AppBar(
+        title: Text('${Day.monthToString(day.month)} ${day.day}th',
+            style: Styles.baseTextStyle.copyWith(fontSize: 20.0)),
+        backgroundColor: Styles.backgroundColor,
+        bottom: PreferredSize(
+          preferredSize: Size.fromHeight(4.0), // Set the height of the border
+          child: Container(
+            height: 1.0, // Height of the border
+            color: Color.fromARGB(45, 124, 136, 138), // Color of the border
+          ),
+        ),
+      ),
+      body: Padding(
+        padding: EdgeInsets.only(top: 20.0),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              _renderTodayMacros(context, nutrients),
+              Padding(
+                padding: EdgeInsets.all(24.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    //SunRise
+                    Container(
+                        decoration: BoxDecoration(
+                          color: Styles.foregroundColor, // Background color
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color:
+                                  Colors.grey.withOpacity(0.1), // Shadow color
+                              spreadRadius: 1,
+                              blurRadius: 1,
+                              offset: Offset(0, 2), // Shadow position
+                            ),
+                          ],
+                        ),
+                        padding: EdgeInsets.all(16.0),
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.sunny,
+                                  size: 60.0,
+                                  color: Styles.sunRiseTextColor,
+                                ),
+                                SizedBox(width: 8),
+                                Column(
+                                  children: [
+                                    Text('SUN',
+                                        style: Styles.prayerBoldText.copyWith(
+                                            color: Styles.sunRiseTextColor)),
+                                    Text('RISE',
+                                        style: Styles.prayerLightText.copyWith(
+                                            color: Styles.sunRiseTextColor)),
+                                  ],
+                                )
+                              ],
+                            ),
+                            Text(
+                              '5:34am',
+                              style: Styles.prayerMediumText,
+                            ),
+                          ],
+                        )),
+                    //SunSet
+                    Container(
+                        decoration: BoxDecoration(
+                          color: Styles.foregroundColor, // Background color
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color:
+                                  Colors.grey.withOpacity(0.1), // Shadow color
+                              spreadRadius: 1,
+                              blurRadius: 1,
+                              offset: Offset(0, 2), // Shadow position
+                            ),
+                          ],
+                        ),
+                        padding: EdgeInsets.all(16.0),
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.dark_mode,
+                                  size: 60.0,
+                                  color: Styles.primaryColor,
+                                ),
+                                SizedBox(width: 8),
+                                Column(
+                                  children: [
+                                    Text('SUN',
+                                        style: Styles.prayerBoldText.copyWith(
+                                            color: Styles.primaryColor)),
+                                    Text('SET',
+                                        style: Styles.prayerLightText.copyWith(
+                                            color: Styles.primaryColor)),
+                                  ],
+                                )
+                              ],
+                            ),
+                            Text(
+                              '10:30pm',
+                              style: Styles.prayerMediumText,
+                            ),
+                          ],
+                        )),
+                  ],
+                ),
               ),
-            ),
-            _renderMealContainer(context, meals),
-          ],
+              _renderMealContainer(context, meals),
+            ],
+          ),
         ),
       ),
     );
@@ -281,8 +298,8 @@ class _DayPageState extends State<DayPage> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) =>
-            AddMeal(Day(date: this.day.date)), // can be used in
+        builder: (context) => AddMeal(
+            Day(day: this.day.day, month: this.day.month)), // can be used in
       ),
     );
   }
