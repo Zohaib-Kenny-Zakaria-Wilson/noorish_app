@@ -1,7 +1,7 @@
 import 'package:noorish_app/models/ingredient.dart';
 import 'package:noorish_app/models/meal.dart';
 
-mixin MockMeal {
+mixin MockMeal implements Meal {
   static final List<Meal> meals = [
     Meal(
       name: 'Spaghetti Carbonara',
@@ -56,4 +56,5 @@ mixin MockMeal {
       ],
     ),
     // Add more meals as needed
-  ];}
+  ];
+}

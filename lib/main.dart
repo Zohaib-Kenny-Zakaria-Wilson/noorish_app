@@ -4,7 +4,6 @@ import 'package:noorish_app/pages/calendar_page.dart';
 import 'package:noorish_app/pages/day_page.dart';
 import 'package:noorish_app/pages/reciepe_page.dart';
 import 'package:noorish_app/style.dart';
-import 'package:noorish_app/mocks/user_mock.dart';
 
 void main() {
   runApp(MaterialApp(

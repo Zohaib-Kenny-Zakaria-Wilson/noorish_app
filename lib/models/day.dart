@@ -1,8 +1,12 @@
+import 'package:noorish_app/mocks/day_mock.dart';
+import 'package:noorish_app/mocks/meals_mock.dart';
+import 'package:noorish_app/models/meal.dart';
+
 class Day {
   final DateTime sunriseTime;
   final DateTime sunsetTime;
-  List<DateTime> prayerTimes;
-//   List<Meal> meals;
+  List<DateTime> prayerTimes = MockDay.prayerTimes;
+  List<Meal> meals = MockMeal.meals;
 
   Day({
     required this.prayerTimes,
