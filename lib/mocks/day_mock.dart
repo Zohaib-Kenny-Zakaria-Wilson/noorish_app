@@ -1,7 +1,7 @@
 import 'package:noorish_app/models/day.dart';
 
 class MockDay extends Day {
-  MockDay() : super(prayerTimes: [], updatePrayerTimes: () {});
+  MockDay() : super();
   final prayerTimes = [
     '05:17 (CDT)', // Fajr
     '13:28 (CDT)', // Dhuhr

@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-Object makeApiCall(double latitude, double longitude) async {
+Future<List<dynamic>> makeApiCall(double latitude, double longitude) async {
   final String latitudeString = latitude.toString();
   final String longitudeString = longitude.toString();
   final url = Uri.parse(
@@ -15,10 +15,10 @@ Object makeApiCall(double latitude, double longitude) async {
 
   if (response.statusCode == 200) {
     // API call successful
-    Object output = json.decode(response.body)['data'];
+    List<dynamic> output = json.decode(response.body)['data'];
     return output;
   } else {
     // API call failed
-    return ('API call failed with status code: ${response.statusCode}');
+    return [];
   }
 }
