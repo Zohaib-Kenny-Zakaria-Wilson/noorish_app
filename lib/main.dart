@@ -13,7 +13,7 @@ void main() async {
   // List<dynamic> jsonData = await makeApiCall(MockUser().lat, MockUser().long);
 
   // print(jsonData);
-  Day day = Day();
+  Day day = Day(date: 18);
   await day.updatePrayerTimes();
   print(await day.prayerTimes);
 
@@ -33,10 +33,11 @@ void main() async {
           body: const TabBarView(
             children: [
               CalendarPage(),
+              DayPage(dayNumber: 18),
               Recipe(),
             ],
           ),
-          bottomNavigationBar: BottomAppBar(
+          bottomNavigationBar: const BottomAppBar(
             child: TabBar(
               tabs: [
                 Tab(icon: Icon(Icons.calendar_today_rounded)),
