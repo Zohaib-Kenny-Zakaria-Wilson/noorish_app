@@ -23,7 +23,7 @@ void main() async {
         length: 3, // Number of tabs
         child: Scaffold(
           appBar: AppBar(
-            backgroundColor: Color.fromARGB(255, 46, 103, 156),
+            backgroundColor: Styles.backgroundColor,
             title: Text(
               'Noorish',
               textAlign: TextAlign.center,
