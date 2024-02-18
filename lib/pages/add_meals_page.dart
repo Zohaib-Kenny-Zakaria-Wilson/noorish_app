@@ -21,21 +21,22 @@ class AddMeal extends StatefulWidget {
 class _AddMealState extends State<AddMeal> {
   bool isScanning = false;
   List<Ingredient> ingredients = [];
-
+  String barcodeString = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Add Meal')),
+      appBar: AppBar(title: Text('Add Meal')),
       body: isScanning
           ? MobileScanner(
               onDetect: (capture) {
                 final List<Barcode> barcodes = capture.barcodes;
                 if (barcodes.isNotEmpty) {
-                  final barcode = barcodes[0];
-                  debugPrint('Barcode found! ${barcode.rawValue}');
-                  fetchProductNutriments(barcode.rawValue!);
+                  final barcode = barcodes[0].displayValue;
                   setState(() {
                     isScanning = false;
+                    barcodeString = barcode.toString();
+                    ingredients.addAll(fetchProductNutriments(barcodeString)
+                        as Iterable<Ingredient>);
                   });
                 }
               },
