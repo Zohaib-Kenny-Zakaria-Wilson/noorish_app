@@ -13,14 +13,13 @@ void main() async {
   runApp(
     MaterialApp(
       home: DefaultTabController(
-        length: 3, // Number of tabs
+        length: 2, // Number of tabs
         child: Scaffold(
           body: TabBarView(
             children: [
               CalendarPage(month: DateTime.now().month),
               DayPage(
                   dayNumber: DateTime.now().day, month: DateTime.now().month),
-              const Recipe(),
             ],
           ),
           bottomNavigationBar: const BottomAppBar(
@@ -28,7 +27,6 @@ void main() async {
               tabs: [
                 Tab(icon: Icon(Icons.calendar_today_rounded)),
                 Tab(icon: Icon(Icons.home_filled)),
-                Tab(icon: Icon(Icons.list_alt_rounded)),
               ],
             ),
           ),
