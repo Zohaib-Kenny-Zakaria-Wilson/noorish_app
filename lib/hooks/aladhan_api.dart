@@ -6,7 +6,7 @@ Object makeApiCall(double latitude, double longitude) async {
   final String latitudeString = latitude.toString();
   final String longitudeString = longitude.toString();
   final url = Uri.parse(
-      'http://api.aladhan.com/v1/hijriCalendar/1445/08?latitude=' +
+      'http://api.aladhan.com/v1/hijriCalendar/1445/09?latitude=' +
           latitudeString +
           '&longitude=' +
           longitudeString +
