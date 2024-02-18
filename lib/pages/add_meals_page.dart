@@ -32,13 +32,13 @@ class _AddMealState extends State<AddMeal> {
                   final List<Barcode> barcodes = capture.barcodes;
                   if (barcodes.isNotEmpty) {
                     final barcode = barcodes[0].displayValue;
-                    setState(() {
+                    setState(() async {
                       isScanning = false;
                       barcodeString = barcode.toString();
                       Ingredient ingredient =
                           Ingredient(barcode: barcodeString);
                       ingredient.updateNutriments();
-                      ingredients.add(ingredient);
+                      ingredients.add(await ingredient);
                     });
                   }
                 },
