@@ -1,8 +1,8 @@
 import 'package:http/http.dart' as http;
 
 Future<String> makeApiCall(double latitude, double longitude) async {
-  final String latitudeString = (latitude) as String;
-  final String longitudeString = (longitude) as String;
+  final String latitudeString = latitude.toString();
+  final String longitudeString = longitude.toString();
   final url = Uri.parse(
       'http://api.aladhan.com/v1/hijriCalendar/1445/09?latitude=' +
           latitudeString +

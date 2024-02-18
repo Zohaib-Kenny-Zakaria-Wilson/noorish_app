@@ -1,5 +1,5 @@
 import 'package:noorish_app/models/user.dart';
-import 'package:geolocator/geolocator.dart';
+// import 'package:geolocator/geolocator.dart';
 
 class MockUser extends User {
   MockUser()
