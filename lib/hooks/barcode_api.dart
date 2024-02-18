@@ -26,7 +26,7 @@ Future<String?> fetchProductName(String barcode) async {
   }
 }
 
-Future<Object> fetchProductNutriments(String barcode) async {
+Future<Map> fetchProductNutriments(String barcode) async {
   final String url =
       'https://world.openfoodfacts.org/api/v0/product/$barcode.json';
   try {
@@ -36,14 +36,14 @@ Future<Object> fetchProductNutriments(String barcode) async {
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
       if (data['status'] == 0) {
-        return 'Product not found';
+        return {'error': 'Product not found'};
       } else {
         return data['product']['nutriments']; // Return the nutriments
       }
     } else {
-      return 'Error fetching product info';
+      return {'error': 'Error fetching product info'};
     }
   } catch (e) {
-    return 'Error fetching product info: $e';
+    return {'error': 'Error fetching product info: $e'};
   }
 }
