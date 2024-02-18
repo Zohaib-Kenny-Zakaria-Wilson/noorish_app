@@ -17,38 +17,36 @@ void main() async {
   await day.updatePrayerTimes();
   print(await day.prayerTimes);
 
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(
-        title: Text("Hi!", style: Style.fonts),
-    home: DefaultTabController(
-      length: 3,
-      child: Scaffold(
-        backgroundColor: Styles.backgroundColor,
-        appBar: AppBar(
-          backgroundColor: Color.fromARGB(255, 46, 103, 156),
-          title: Text(
-            'Noorish',
-            textAlign: TextAlign.center,
-            style: Styles.headline1,
+  runApp(
+    MaterialApp(
+      home: DefaultTabController(
+        length: 3, // Number of tabs
+        child: Scaffold(
+          appBar: AppBar(
+            backgroundColor: Color.fromARGB(255, 46, 103, 156),
+            title: Text(
+              'Noorish',
+              textAlign: TextAlign.center,
+              style: Styles.headline1,
+            ),
           ),
-        ),
-        body: const TabBarView(
-          children: [
-            Calendar(),
-            DayPage(),
-            Recipe(),
-          ],
-        ),
-        bottomNavigationBar: const TabBar(
-          tabs: [
-            Tab(icon: Icon(Icons.calendar_today_rounded)),
-            Tab(icon: Icon(Icons.home_filled)),
-            Tab(icon: Icon(Icons.list_alt_rounded)),
-          ],
-          padding: EdgeInsets.all(16.0),
+          body: const TabBarView(
+            children: [
+              Calendar(),
+              DayPage(),
+              Recipe(),
+            ],
+          ),
+          bottomNavigationBar: const TabBar(
+            tabs: [
+              Tab(icon: Icon(Icons.calendar_today_rounded)),
+              Tab(icon: Icon(Icons.home_filled)),
+              Tab(icon: Icon(Icons.list_alt_rounded)),
+            ],
+            padding: EdgeInsets.all(16.0),
+          ),
         ),
       ),
     ),
-  ));
+  );
 }

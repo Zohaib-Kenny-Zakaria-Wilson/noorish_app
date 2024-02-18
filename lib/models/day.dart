@@ -11,7 +11,6 @@ class Day {
   Day();
 
   Future<void> updatePrayerTimes() async {
-    print("hi");
     List<dynamic> ramadanDays = await Ramadan.getRamadanDays();
     List<String> prayers = [];
     int index;
@@ -22,15 +21,10 @@ class Day {
     }
 
     prayers.add(ramadanDays[index]['timings']['Fajr']);
-    print(prayers);
     prayers.add(ramadanDays[index]['timings']['Dhuhr']);
-    print(prayers);
     prayers.add(ramadanDays[index]['timings']['Asr']);
-    print(prayers);
     prayers.add(ramadanDays[index]['timings']['Maghrib']);
-    print(prayers);
     prayers.add(ramadanDays[index]['timings']['Isha']);
-    print(prayers);
 
     prayerTimes = prayers;
   }
