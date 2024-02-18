@@ -282,7 +282,7 @@ class _DayPageState extends State<DayPage> {
       context,
       MaterialPageRoute(
         builder: (context) =>
-            AddMeal(Day(date: this.day.date)), // can be used in
+            AddMeal(day: day), // Pass the `day` directly to `AddMeal`
       ),
     );
   }
