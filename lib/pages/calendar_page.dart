@@ -1,20 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:noorish_app/models/day.dart';
 import 'package:noorish_app/pages/day_page.dart';
+import 'package:noorish_app/style.dart';
 
 class CalendarPage extends StatelessWidget {
-    const CalendarPage({super.key});
+  final int month;
+
+  const CalendarPage({Key? key, required this.month}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Calendar'),
+        title: Text(
+          '${Day.monthToString(month)}',
+          style: Styles.baseTextStyle.copyWith(fontSize: 20.0),
+        ),
       ),
       body: GridView.builder(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 7,
         ),
-        itemCount: 31, // 7x5 grid
+        itemCount: 28, // 7x5 grid
         itemBuilder: (context, index) {
           // Adding 1 to index since you may want to start the calendar from day 1
           int dayNumber = index + 1;
@@ -45,7 +52,7 @@ class CalendarPage extends StatelessWidget {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => DayPage(dayNumber: dayNumber),
+        builder: (context) => DayPage(dayNumber: dayNumber, month: month),
       ),
     );
   }
