@@ -5,6 +5,7 @@ class Styles {
   static final Color primaryColor = Color.fromARGB(255, 0, 167, 156);
   static final Color secondaryColor = Color.fromARGB(255, 43, 182, 115);
   static final Color primaryTextColor = Color.fromARGB(255, 30, 30, 30);
+  static final Color foregroundColor = Colors.white;
 
   ///TextStyles
   ///TextStyles
