@@ -2,7 +2,6 @@ class Day {
   final DateTime sunriseTime;
   final DateTime sunsetTime;
   List<DateTime> prayerTimes;
-  final User user = MockUser();
 //   List<Meal> meals;
 
   Day({
