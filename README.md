@@ -22,9 +22,11 @@ Used to fetch information related to sunrise and sunset times, assisting users i
 OpenFoodFacts API: Provides nutritional information for scanned ingredients, helping users make informed dietary choices.
 ### Google's Machine Learning Toolkit (Barcode Scanner Subset)
 Utilized for barcode scanning functionality, enabling users to quickly retrieve nutritional information for scanned products.
+### OpenFoodFacts API
+Used to get nutritional information from about the scanned items. This information is then displayed to the user.
 
 ## Development Information
-Framework: Flutter
+Framework: Flutter 
 Programming Language: Dart
 
 ## How to Run the App
