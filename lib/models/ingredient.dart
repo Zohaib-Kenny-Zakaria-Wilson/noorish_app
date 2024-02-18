@@ -14,6 +14,8 @@ class Ingredient {
 
   Future<void> updateNutriments() async {
     Map nutriments = await fetchProductNutriments(this.barcode);
+    String? name = await fetchProductName(this.barcode);
+    name = name;
     protein = nutriments['proteins'];
     carbs = nutriments['carbohydrates'];
     calories = nutriments['energy-kcal'];
