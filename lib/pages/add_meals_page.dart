@@ -30,16 +30,16 @@ class _AddMealState extends State<AddMeal> {
             ? MobileScanner(
                 onDetect: (capture) {
                   final List<Barcode> barcodes = capture.barcodes;
+                  Ingredient ingredient;
                   if (barcodes.isNotEmpty) {
                     final barcode = barcodes[0].displayValue;
-                    setState(() async {
+                    ingredient = Ingredient(barcode: barcodeString);
+                    ingredient.updateNutriments();
+                    setState(() {
                       isScanning = false;
                       barcodeString = barcode.toString();
-                      Ingredient ingredient =
-                          Ingredient(barcode: barcodeString);
-                      ingredient.updateNutriments();
-                      ingredients.add(await ingredient);
                     });
+                    ingredients.add(ingredient);
                   }
                 },
               )
