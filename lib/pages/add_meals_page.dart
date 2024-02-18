@@ -10,18 +10,15 @@ import 'package:noorish_app/hooks/barcode_api.dart';
 class AddMeal extends StatefulWidget {
   final Day day;
 
+  // No need to pass Day day again if it's already included in the required parameters
   const AddMeal({Key? key, required this.day}) : super(key: key);
 
   @override
-  _AddMealState createState() => _AddMealState(day);
+  _AddMealState createState() => _AddMealState();
 }
 
-// Define the State class
 class _AddMealState extends State<AddMeal> {
-  final Day day;
   bool isScanning = true; // State variable to control scanner activity
-
-  _AddMealState(this.day);
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +31,7 @@ class _AddMealState extends State<AddMeal> {
                 if (barcodes.isNotEmpty) {
                   final barcode = barcodes[0];
                   debugPrint('Barcode found! ${barcode.rawValue}');
-                  fetchProductInfo(barcode.rawValue!); // Fetch product info
+                  fetchProductName(barcode.rawValue!); // Fetch product info
 
                   setState(() {
                     isScanning =

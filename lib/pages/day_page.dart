@@ -298,8 +298,7 @@ class _DayPageState extends State<DayPage> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => AddMeal(
-            Day(day: this.day.day, month: this.day.month)), // can be used in
+        builder: (context) => AddMeal(day: day),
       ),
     );
   }
