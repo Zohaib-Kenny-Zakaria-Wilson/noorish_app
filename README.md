@@ -3,12 +3,12 @@ Noorish is a Flutter mobile application designed to assist Muslims in tracking t
 
 ## Features
 ### 1. Day Page
-<img width="200" alt="my screenshots 2024-03-18 at 12 30 15 PM" src="https://github.com/Zohaib-Kenny-Zakaria-Wilson/noorish_app/assets/121403508/7aae63e0-1239-4590-903b-433757e22b04">
-
 Upon launching the app, users are greeted with the Day page.
 The Day page displays essential information such as times for sunset and sunrise, helping users manage their fasting schedule effectively.
 It includes a section that lists the meals planned for the day, aiding users in organizing their eating schedule.
 The app calculates and updates the total calories and macronutrients consumed, providing users with insights into their nutritional intake.
+
+<img width="200" alt="my screenshots 2024-03-18 at 12 30 15 PM" src="https://github.com/Zohaib-Kenny-Zakaria-Wilson/noorish_app/assets/121403508/7aae63e0-1239-4590-903b-433757e22b04">
 
 ### 2. Calendar Page
 Users can navigate to the Calendar page by swiping left from the Day page.
