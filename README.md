@@ -14,6 +14,7 @@ The app calculates and updates the total calories and macronutrients consumed, p
 Users can navigate to the Calendar page by swiping left from the Day page.
 The Calendar page presents a monthly view with 31 days, allowing users to visualize their fasting and eating patterns throughout Ramadan.
 Users can click on any day in the calendar to access the Day page for that specific day, facilitating easy access to detailed information.
+
 <img width="200" alt="my screenshots 2024-03-18 at 12 30 22 PM" src="https://github.com/Zohaib-Kenny-Zakaria-Wilson/noorish_app/assets/121403508/175934a8-a1b6-44c2-bbd9-9edaed3dfe28">
 
 
