@@ -3,7 +3,8 @@ Noorish is a Flutter mobile application designed to assist Muslims in tracking t
 
 ## Features
 ### 1. Day Page
-<img width="449" alt="my screenshots 2024-03-18 at 12 30 15 PM" src="https://github.com/Zohaib-Kenny-Zakaria-Wilson/noorish_app/assets/121403508/7aae63e0-1239-4590-903b-433757e22b04">
+<img width="200" alt="my screenshots 2024-03-18 at 12 30 15 PM" src="https://github.com/Zohaib-Kenny-Zakaria-Wilson/noorish_app/assets/121403508/7aae63e0-1239-4590-903b-433757e22b04">
+
 Upon launching the app, users are greeted with the Day page.
 The Day page displays essential information such as times for sunset and sunrise, helping users manage their fasting schedule effectively.
 It includes a section that lists the meals planned for the day, aiding users in organizing their eating schedule.
@@ -13,7 +14,7 @@ The app calculates and updates the total calories and macronutrients consumed, p
 Users can navigate to the Calendar page by swiping left from the Day page.
 The Calendar page presents a monthly view with 31 days, allowing users to visualize their fasting and eating patterns throughout Ramadan.
 Users can click on any day in the calendar to access the Day page for that specific day, facilitating easy access to detailed information.
-<img width="449" alt="my screenshots 2024-03-18 at 12 30 22 PM" src="https://github.com/Zohaib-Kenny-Zakaria-Wilson/noorish_app/assets/121403508/175934a8-a1b6-44c2-bbd9-9edaed3dfe28">
+<img width="200" alt="my screenshots 2024-03-18 at 12 30 22 PM" src="https://github.com/Zohaib-Kenny-Zakaria-Wilson/noorish_app/assets/121403508/175934a8-a1b6-44c2-bbd9-9edaed3dfe28">
 
 
 ## Testing Environment
