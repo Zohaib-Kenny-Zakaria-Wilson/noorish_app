@@ -16,10 +16,6 @@ The Calendar page presents a monthly view with 31 days, allowing users to visual
 Users can click on any day in the calendar to access the Day page for that specific day, facilitating easy access to detailed information.
 
 <img width="200" alt="my screenshots 2024-03-18 at 12 30 22 PM" src="https://github.com/Zohaib-Kenny-Zakaria-Wilson/noorish_app/assets/121403508/175934a8-a1b6-44c2-bbd9-9edaed3dfe28">
-<img width="377" alt="my screenshots 2024-03-18 at 12 29 57 PM" src="https://github.com/Zohaib-Kenny-Zakaria-Wilson/noorish_app/assets/121403508/ec2b90dc-d376-4c19-b84d-a8465afa29dd">
-<img width="377" alt="my screenshots 2024-03-18 at 12 29 52 PM" src="https://github.com/Zohaib-Kenny-Zakaria-Wilson/noorish_app/assets/121403508/b5471a40-1148-4416-96c8-a00a05882e8b">
-<img width="377" alt="my screenshots 2024-03-18 at 12 29 46 PM" src="https://github.com/Zohaib-Kenny-Zakaria-Wilson/noorish_app/assets/121403508/50360d70-d509-4063-ad1c-d7497bd7f3fd">
-
 
 ## Testing Environment
 The app has been tested using an Android Pixel 3 emulator.
