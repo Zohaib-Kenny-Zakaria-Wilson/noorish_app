@@ -24,7 +24,7 @@ OpenFoodFacts API: Provides nutritional information for scanned ingredients, hel
 Utilized for barcode scanning functionality, enabling users to quickly retrieve nutritional information for scanned products.
 ### OpenFoodFacts API
 Used to get nutritional information from about the scanned items. This information is then displayed to the user.
-
+![Uploading image.png…]()
 ## Development Information
 Framework: Flutter 
 Programming Language: Dart
